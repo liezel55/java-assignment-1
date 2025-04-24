@@ -1,0 +1,41 @@
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+        AnimalSound animalSound = new AnimalSound();
+
+        animalSound.makeSound(dog); // Dog barks
+        animalSound.makeSound(cat); // Cat meows
+    }
+}
+
+interface CanBark {
+    void bark();
+}
+
+interface CanMeow {
+    void meow();
+}
+
+class Dog implements CanBark {
+    public void bark() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat implements CanMeow {
+    public void meow() {
+        System.out.println("Cat meows");
+    }
+}
+
+class AnimalSound {
+    void makeSound(CanBark barker) {
+        barker.bark();
+    }
+
+    void makeSound(CanMeow meower) {
+        meower.meow();
+    }
+}
+
